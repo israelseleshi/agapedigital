@@ -64,7 +64,7 @@ const Portfolio = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="pt-32 pb-20 bg-white min-h-screen"
+      className="pt-32 pb-8 bg-white min-h-screen"
     >
       {/* Header */}
       <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-20">
@@ -144,27 +144,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-32 max-w-4xl mx-auto px-6 lg:px-12 text-center">
-        <div className="glass-light rounded-2xl p-8 premium-hover">
-          <div className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tighter">
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-base text-gray-600">
-              Let's collaborate to bring your vision to life with the same level of excellence and attention to detail.
-            </p>
-            <motion.a
-              href="/contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block px-8 py-4 bg-primary-500 hover:bg-primary-600 rounded-lg text-white font-semibold transition-all duration-300"
-            >
-              Get Started Today
-            </motion.a>
-          </div>
-        </div>
-      </section>
     </motion.main>
   );
 };

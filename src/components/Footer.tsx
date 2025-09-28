@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Github, Twitter, Linkedin, ArrowRight, BookOpen } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, ArrowRight, BookOpen } from 'lucide-react';
 
 const Footer = () => {
   const socialLinks = [
     { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: Mail, href: 'mailto:contact@agapedigital.com.et', label: 'Email' },
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
   ];
 
@@ -36,7 +36,7 @@ const Footer = () => {
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">
                 Stay Updated
               </h3>
               <p className="text-gray-600 leading-relaxed">
@@ -68,7 +68,7 @@ const Footer = () => {
             viewport={{ once: true }}
             className="lg:col-span-2"
           >
-            <Link to="/" className="mb-6 group flex items-center space-x-3">
+            <Link to="/" className="mb-4 group flex items-center space-x-2">
               <img 
                 src="/agape-digital-logo-.png" 
                 alt="Agape Digital" 
@@ -78,23 +78,32 @@ const Footer = () => {
                 Agape Digital
               </span>
             </Link>
-            <p className="text-gray-600 mb-8 max-w-md leading-relaxed text-lg">
-              Creating exceptional digital experiences with premium design and cutting-edge technology. 
-              Transform your vision into reality with our expert team.
+            <p className="text-gray-600 mb-8 max-w-md leading-relaxed text-base">
+              Creating exceptional digital experiences with premium design and cutting-edge technology.
             </p>
             <div className="flex space-x-4">
-              {socialLinks.map(({ icon: Icon, href, label }) => (
-                <motion.a
-                  key={label}
-                  href={href}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-12 h-12 rounded-xl bg-gray-100 border border-gray-200 flex items-center justify-center hover:bg-primary-500/20 hover:border-primary-500/30 transition-all duration-300"
-                  aria-label={label}
-                >
-                  <Icon className="w-5 h-5 text-gray-600 hover:text-primary-500 transition-colors duration-300" />
-                </motion.a>
-              ))}
+              {socialLinks.map(({ icon: Icon, href, label }) => {
+                const getIconColor = (label: string) => {
+                  switch (label) {
+                    case 'GitHub': return 'text-gray-900 hover:text-gray-700';
+                    case 'Email': return 'text-red-600 hover:text-red-500';
+                    case 'LinkedIn': return 'text-blue-600 hover:text-blue-700';
+                    default: return 'text-gray-600 hover:text-gray-800';
+                  }
+                };
+                return (
+                  <motion.a
+                    key={label}
+                    href={href}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="transition-all duration-300"
+                    aria-label={label}
+                  >
+                    <Icon className={`w-6 h-6 ${getIconColor(label)} transition-colors duration-300`} />
+                  </motion.a>
+                );
+              })}
             </div>
           </motion.div>
 
@@ -105,7 +114,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <h3 className="text-xl font-semibold mb-6 text-gray-900">Quick Links</h3>
+            <h3 className="text-xl font-semibold mb-6 text-gray-900 tracking-tight">Quick Links</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.path}>
@@ -130,7 +139,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
           >
-            <h3 className="text-xl font-semibold mb-6 text-gray-900">Resources</h3>
+            <h3 className="text-xl font-semibold mb-6 text-gray-900 tracking-tight">Resources</h3>
             <ul className="space-y-3">
               {resources.map((link) => (
                 <li key={link.path}>
@@ -156,13 +165,13 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <h3 className="text-xl font-semibold mb-6 text-gray-900">Contact</h3>
+            <h3 className="text-xl font-semibold mb-6 text-gray-900 tracking-tight">Contact</h3>
             <div className="space-y-4">
               <motion.div 
                 whileHover={{ x: 4 }}
                 className="flex items-center space-x-3 group cursor-pointer"
               >
-                <Mail className="w-5 h-5 text-primary-500 group-hover:text-primary-400 transition-colors duration-300" />
+                <Mail className="w-5 h-5 text-red-600 group-hover:text-red-500 transition-colors duration-300" />
                 <a href="mailto:contact@agapedigital.com.et" className="text-gray-600 group-hover:text-gray-900 transition-colors duration-300">
                   contact@agapedigital.com.et
                 </a>
@@ -171,7 +180,7 @@ const Footer = () => {
                 whileHover={{ x: 4 }}
                 className="flex items-center space-x-3 group cursor-pointer"
               >
-                <Phone className="w-5 h-5 text-primary-500 group-hover:text-primary-400 transition-colors duration-300" />
+                <Phone className="w-5 h-5 text-red-600 group-hover:text-red-500 transition-colors duration-300" />
                 <a href="tel:+251-920-19-04-38" className="text-gray-600 group-hover:text-gray-900 transition-colors duration-300">
                   +251-920-19-04-38
                 </a>
@@ -180,7 +189,7 @@ const Footer = () => {
                 whileHover={{ x: 4 }}
                 className="flex items-center space-x-3 group cursor-pointer"
               >
-                <MapPin className="w-5 h-5 text-primary-500 group-hover:text-primary-400 transition-colors duration-300" />
+                <MapPin className="w-5 h-5 text-red-600 group-hover:text-red-500 transition-colors duration-300" />
                 <span className="text-gray-600 group-hover:text-gray-900 transition-colors duration-300">Addis Ababa, Ethiopia</span>
               </motion.div>
             </div>
@@ -198,35 +207,32 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
             <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
               <p className="text-gray-500 text-sm">
-                © 2024 Agape Digital. All rights reserved.
+                © {new Date().getFullYear()} Agape Digital. All rights reserved.
               </p>
-              <div className="flex space-x-6 text-sm">
-                <motion.a 
-                  href="#" 
-                  whileHover={{ y: -1 }}
-                  className="text-gray-500 hover:text-gray-700 transition-colors duration-300"
-                >
-                  Privacy Policy
-                </motion.a>
-                <motion.a 
-                  href="#" 
-                  whileHover={{ y: -1 }}
-                  className="text-gray-500 hover:text-gray-700 transition-colors duration-300"
-                >
-                  Terms of Service
-                </motion.a>
-                <motion.a 
-                  href="#" 
-                  whileHover={{ y: -1 }}
-                  className="text-gray-500 hover:text-gray-700 transition-colors duration-300"
-                >
-                  Sitemap
-                </motion.a>
-              </div>
             </div>
             
-            <div className="flex items-center space-x-2">
-              <span className="text-gray-500 text-sm">Crafted with precision and passion</span>
+            <div className="flex space-x-6 text-sm">
+              <motion.a 
+                href="#" 
+                whileHover={{ y: -1 }}
+                className="text-gray-500 hover:text-gray-700 transition-colors duration-300"
+              >
+                Privacy Policy
+              </motion.a>
+              <motion.a 
+                href="#" 
+                whileHover={{ y: -1 }}
+                className="text-gray-500 hover:text-gray-700 transition-colors duration-300"
+              >
+                Terms of Service
+              </motion.a>
+              <motion.a 
+                href="#" 
+                whileHover={{ y: -1 }}
+                className="text-gray-500 hover:text-gray-700 transition-colors duration-300"
+              >
+                Sitemap
+              </motion.a>
             </div>
           </div>
         </motion.div>

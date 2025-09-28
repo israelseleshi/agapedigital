@@ -59,7 +59,7 @@ const About = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="pt-32 pb-20 bg-white min-h-screen"
+      className="pt-32 pb-8 bg-white min-h-screen"
     >
       {/* Header */}
       <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-20">
@@ -168,15 +168,15 @@ const About = () => {
           {values.map((value, index) => {
             const Icon = value.icon;
             return (
-              <div key={index} className="glass-light-no-border rounded-2xl p-8 premium-hover flex flex-col">
+              <div key={index} className="bg-red-600 rounded-2xl p-8 premium-hover flex flex-col shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="flex flex-col h-full">
                   <div className="mb-6">
                     <div className="inline-block">
-                      <Icon className="w-10 h-10 text-red-600" />
+                      <Icon className="w-10 h-10 text-white" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{value.title}</h3>
-                  <p className="text-gray-600 leading-relaxed flex-grow">{value.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-4">{value.title}</h3>
+                  <p className="text-white/90 leading-relaxed flex-grow">{value.description}</p>
                 </div>
               </div>
             );

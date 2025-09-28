@@ -70,7 +70,7 @@ const Services = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="pt-32 pb-20 bg-white min-h-screen"
+      className="pt-32 pb-8 bg-white min-h-screen"
     >
       {/* Header */}
       <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-20">
@@ -106,10 +106,10 @@ const Services = () => {
                     <p className="text-gray-600 mb-8 leading-relaxed text-lg">{service.description}</p>
                   </div>
                   
-                  <div className="space-y-3">
+                  <div className={`${service.title === 'Website Development' ? 'grid grid-cols-2 gap-3' : 'space-y-3'}`}>
                     {service.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center space-x-3">
-                        <Check className="w-5 h-5 text-red-600" />
+                        <Check className="w-5 h-5 text-red-600 flex-shrink-0" />
                         <span className="text-gray-700 font-medium">{feature}</span>
                       </div>
                     ))}

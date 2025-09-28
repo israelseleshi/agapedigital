@@ -28,14 +28,14 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-2xl border-b border-gray-200 supports-[backdrop-filter]:bg-white/60 shadow-sm"
     >
       <div className="max-w-7xl mx-auto px-2 lg:px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo - Far Left Side */}
           <div className="flex-shrink-0 -ml-2">
             <Link to="/" className="group relative flex items-center space-x-3">
               <img 
                 src="/agape-digital-logo-.png" 
                 alt="Agape Digital" 
-                className="h-16 w-auto transition-all duration-300 group-hover:opacity-80"
+                className="h-20 w-auto transition-all duration-300 group-hover:opacity-80"
               />
               <div className="flex flex-col">
                 <span className="text-lg font-medium text-gray-900 tracking-tight leading-tight">

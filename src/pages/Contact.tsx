@@ -55,7 +55,7 @@ const Contact = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="pt-32 pb-20 bg-white min-h-screen"
+      className="pt-32 pb-8 bg-white min-h-screen"
     >
       {/* Header */}
       <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-20">
@@ -93,7 +93,7 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
-                        Name *
+                        Name <span className="text-red-600">*</span>
                       </label>
                       <input
                         type="text"
@@ -108,7 +108,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
-                        Email *
+                        Email <span className="text-red-600">*</span>
                       </label>
                       <input
                         type="email"
@@ -140,7 +140,7 @@ const Contact = () => {
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2">
-                      Message *
+                      Message <span className="text-red-600">*</span>
                     </label>
                     <textarea
                       id="message"
