@@ -10,8 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json",
-    "start": "npm run build && node server.js",
-    "build:production": "npm run build && node server.js",
+    "start": "node server.js",
+"build:production": "npm run build",
     "serve": "node server.js",
     "build:plesk": "node build-for-plesk.js"
   },
