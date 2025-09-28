@@ -1,0 +1,26 @@
+version: 1.0
+
+build:
+  commands:
+    - echo "🚀 Starting build process..."
+    - npm install
+    - npm run build
+    - echo "✅ Build completed!"
+
+deploy:
+  commands:
+    - echo "📦 Starting deployment..."
+    - cp -r dist/* ./
+    - echo "✅ Deployment completed!"
+
+hooks:
+  postDeploy:
+    - echo "🔄 Restarting Node.js application..."
+    - echo "🌐 Application should be live now!"
+
+settings:
+  nodejs:
+    version: "22"
+    startFile: "server.js"
+    applicationRoot: "/"
+    applicationMode: "production"
