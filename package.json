@@ -10,8 +10,10 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json",
-    "start": "node server.js",
-    "build:production": "npm run build && npm run start"
+    "start": "npm run build && node server.js",
+    "build:production": "npm run build && node server.js",
+    "serve": "node server.js",
+    "build:plesk": "node build-for-plesk.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",

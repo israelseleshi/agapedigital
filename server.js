@@ -8,29 +8,13 @@ const __dirname = dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Set proper MIME types for static files
-app.use((req, res, next) => {
-  if (req.path.endsWith('.js')) {
-    res.type('application/javascript');
-  } else if (req.path.endsWith('.css')) {
-    res.type('text/css');
-  } else if (req.path.endsWith('.html')) {
-    res.type('text/html');
-  } else if (req.path.endsWith('.json')) {
-    res.type('application/json');
-  }
-  next();
-});
-
-// Serve static files from the dist directory
+// Serve static files from the dist directory with proper MIME types
 app.use(express.static(join(__dirname, 'dist'), {
   setHeaders: (res, path) => {
+    // Let Express handle most MIME types automatically
+    // Only explicitly set for JavaScript modules to ensure ES modules work
     if (path.endsWith('.js')) {
-      res.setHeader('Content-Type', 'application/javascript');
-    } else if (path.endsWith('.css')) {
-      res.setHeader('Content-Type', 'text/css');
-    } else if (path.endsWith('.html')) {
-      res.setHeader('Content-Type', 'text/html');
+      res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
     }
   }
 }));
@@ -42,8 +26,9 @@ app.get('*', (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`  Server is running on port ${PORT}`);
-  console.log(`  Visit: http://localhost:${PORT}`);
+  console.log(`🚀 Server is running on port ${PORT}`);
+  console.log(`🌐 Visit: http://localhost:${PORT}`);
+  console.log(`📁 Serving from: ${join(__dirname, 'dist')}`);
 });
 
 export default app;
